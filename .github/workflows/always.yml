@@ -9,7 +9,7 @@ env:
 
 jobs:
   lint:
-    name: Lint
+    name: npm run lint
     runs-on: ubuntu-latest
     steps:
       - name: setup node @ ${{ env.NODE_VERSION }}
