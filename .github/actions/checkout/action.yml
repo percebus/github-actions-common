@@ -1,0 +1,18 @@
+name: checkout
+description: checkout and do some other things
+inputs:
+  ls_opts:
+    description: ls options
+    required: false
+    # in windows, la does NOT work
+    default: "-la"
+
+runs:
+  using: composite
+  steps:
+    - name: checkout
+      uses: actions/checkout@v3
+
+    - name: ls
+      shell: bash
+      run: ls ${{ inputs.ls_opts }}

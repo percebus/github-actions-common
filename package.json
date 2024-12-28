@@ -1,0 +1,34 @@
+{
+  "name": "github-reusable-workflows",
+  "version": "1.0.0",
+  "description": "GitHub re-usable workflows and actions",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier .",
+    "prettier:check": "npm run prettier -- --check",
+    "prettier:write": "npm run prettier -- --write",
+    "lint": "npm run prettier:check",
+    "style": "npm run prettier:write",
+    "poststyle": "npm run prettier:check",
+    "pretest": "npm run lint",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/percebus/github-reusable-workflows.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "workflows"
+  ],
+  "author": "JCystems",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/percebus/github-reusable-workflows/issues"
+  },
+  "homepage": "https://github.com/percebus/github-reusable-workflows#readme",
+  "devDependencies": {
+    "prettier": "^3.4.2"
+  }
+}

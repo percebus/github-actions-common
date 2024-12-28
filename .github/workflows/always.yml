@@ -1,0 +1,33 @@
+name: Verify
+on:
+  push:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  # auto-select LTS version
+  NODE_VERSION: ""
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup node @ ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - uses: percebus/github-reusable-workflows/.github/actions/checkout@main
+
+      - name: npm run setup
+        run: npm run setup:ci --if-present
+
+      - name: npm install
+        run: npm ci
+      - name: ls node_modules
+        run: ls -la ./node_modules
+
+      - name: npm run lint
+        run: npm run lint

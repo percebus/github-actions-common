@@ -1,0 +1,20 @@
+name: Dependency Review
+
+# "This run was triggered by the "push" event, which is unsupported.
+#  Please ensure you are using the "pull_request" event for this workflow."
+on:
+  pull_request:
+  workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: dependency-review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: percebus/github-reusable-workflows/.github/actions/checkout@main
+
+      - name: dependency-review
+        uses: actions/dependency-review-action@v2
