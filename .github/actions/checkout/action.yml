@@ -1,7 +1,7 @@
 name: checkout
 description: checkout and do some other things
 inputs:
-  ls_opts:
+  ls_options:
     description: ls options
     required: false
     # in windows, la does NOT work
@@ -15,4 +15,4 @@ runs:
 
     - name: ls
       shell: bash
-      run: ls ${{ inputs.ls_opts }}
+      run: ls ${{ inputs.ls_options }}

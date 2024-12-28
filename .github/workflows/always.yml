@@ -1,9 +1,7 @@
 name: Verify
 on:
   push:
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
 env:
   # auto-select LTS version
@@ -19,7 +17,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - uses: percebus/github-reusable-workflows/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
 
       - name: npm run setup
         run: npm run setup:ci --if-present

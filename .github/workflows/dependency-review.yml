@@ -1,4 +1,4 @@
-name: Dependency Review
+name: dependency-review
 
 # "This run was triggered by the "push" event, which is unsupported.
 #  Please ensure you are using the "pull_request" event for this workflow."
@@ -14,7 +14,7 @@ jobs:
     name: dependency-review
     runs-on: ubuntu-latest
     steps:
-      - uses: percebus/github-reusable-workflows/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
 
       - name: dependency-review
         uses: actions/dependency-review-action@v2
