@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - uses: percebus/github-reusable-workflows/.github/actions/checkout@chore
+      - uses: percebus/github-reusable-workflows/.github/actions/checkout@main
 
       - name: npm run setup
         run: npm run setup:ci --if-present
