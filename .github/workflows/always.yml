@@ -9,7 +9,7 @@ env:
 
 jobs:
   lint:
-    name: Lint
+    name: npm run lint
     runs-on: ubuntu-latest
     steps:
       - name: setup node @ ${{ env.NODE_VERSION }}
@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - uses: ./.github/actions/checkout
+      - uses: percebus/github-reusable-workflows/.github/actions/checkout@chore
 
       - name: npm run setup
         run: npm run setup:ci --if-present
