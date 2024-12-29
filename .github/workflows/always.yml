@@ -19,7 +19,7 @@ jobs:
 
       - uses: percebus/github-actions-common/.github/actions/checkout@main
 
-      - name: npm run setup
+      - name: npm run setup:ci
         run: npm run setup:ci --if-present
 
       - name: npm install
