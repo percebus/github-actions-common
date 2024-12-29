@@ -1,4 +1,4 @@
-# github-reusable-workflows
+# github-actions-common
 
 ## TODOs
 
