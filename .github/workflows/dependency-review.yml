@@ -14,7 +14,7 @@ jobs:
     name: dependency-review
     runs-on: ubuntu-latest
     steps:
-      - uses: percebus/github-actions-common/actions/checkout@main
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
 
       - name: dependency-review
         uses: actions/dependency-review-action@v2
