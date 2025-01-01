@@ -1,4 +1,4 @@
-name: Verify
+name: Verification
 on:
   push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
