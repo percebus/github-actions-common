@@ -1,4 +1,4 @@
-name: Verification
+name: "[C]ontinuous [I]ntegration"
 on:
   push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
@@ -12,13 +12,17 @@ jobs:
     name: npm run lint
     runs-on: ubuntu-latest
     steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+
+      # NOTE: We could use github-actions-node
+      # But it has a dependency on github-actions-common
       - name: setup node @ ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
-
+      # NOTE: We could use github-actions-npm
+      # But it has a dependency on github-actions-common
       - name: npm run setup:ci
         run: npm run setup:ci --if-present
 

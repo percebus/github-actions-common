@@ -1,6 +1,12 @@
 name: checkout
 description: checkout and do some other things
 inputs:
+  fetch-depth:
+    description: git checkout fetch-depth
+    type: number
+    required: false
+    default: 0
+
   ls_options:
     description: ls options
     required: false
@@ -12,6 +18,8 @@ runs:
   steps:
     - name: checkout
       uses: actions/checkout@v3
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
 
     - name: ls
       shell: bash
