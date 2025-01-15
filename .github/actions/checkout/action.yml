@@ -30,6 +30,10 @@ runs:
       with:
         fetch-depth: ${{ inputs.fetch-depth }}
 
+    - name: git submodule update
+      shell: bash
+      run: git submodule update --init --recursive
+
     - name: ls
       shell: bash
       run: ls ${{ inputs.ls_options }}
