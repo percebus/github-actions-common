@@ -7,15 +7,13 @@ inputs:
 
   submodules:
     description: whether to update submodules
-    type: boolean
     required: false
-    default: true
+    default: 'true'
 
   fetch-depth:
     description: git checkout fetch-depth
-    type: number
     required: false
-    default: 0
+    default: "0"
 
   ls_options:
     description: ls options
@@ -37,7 +35,7 @@ runs:
         fetch-depth: ${{ inputs.fetch-depth }}
 
     - name: git submodule update
-      if: ${{ inputs.submodules == true }}
+      if: ${{ inputs.submodules == 'true' }}
       shell: bash
       run: |
         git submodule update --init --recursive
