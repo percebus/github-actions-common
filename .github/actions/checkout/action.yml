@@ -32,7 +32,9 @@ runs:
 
     - name: git submodule update
       shell: bash
-      run: git submodule update --remote
+      run: |
+        git submodule update --init --recursive
+        git submodule update --remote
 
     - name: ls
       shell: bash
