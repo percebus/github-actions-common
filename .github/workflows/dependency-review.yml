@@ -17,7 +17,7 @@ inputs:
   submodules:
     type: boolean
     required: false
-    default: true
+    default: false
 
 jobs:
   dependency-review:
