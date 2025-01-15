@@ -5,6 +5,12 @@ inputs:
     description: SSH private key
     required: false
 
+  submodules:
+    description: whether to update submodules
+    type: boolean
+    required: false
+    default: true
+
   fetch-depth:
     description: git checkout fetch-depth
     type: number
@@ -31,6 +37,7 @@ runs:
         fetch-depth: ${{ inputs.fetch-depth }}
 
     - name: git submodule update
+      if: ${{ inputs.submodules == true }}
       shell: bash
       run: |
         git submodule update --init --recursive

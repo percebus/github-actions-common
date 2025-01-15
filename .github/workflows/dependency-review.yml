@@ -9,12 +9,25 @@ on:
 permissions:
   contents: read
 
+inputs:
+  ssh-private-key:
+    required: false
+    default: ""
+
+  submodules:
+    type: boolean
+    required: false
+    default: true
+
 jobs:
   dependency-review:
     name: dependency-review
     runs-on: ubuntu-latest
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ssh-private-key: ${{ inputs.ssh-private-key }}
+          submodules: ${{ inputs.submodules }}
 
       - name: dependency-review
         uses: actions/dependency-review-action@v2
