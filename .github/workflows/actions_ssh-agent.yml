@@ -10,7 +10,7 @@ env:
 jobs:
   ssh-private-key:
     runs-on: ubuntu-latest
-    name: "w/: ssh-private-key"
+    name: "w/ ssh-private-key"
     steps:
       - name: checkout
         uses: actions/checkout@v4
