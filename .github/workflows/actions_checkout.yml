@@ -1,0 +1,27 @@
+name: actions/checkout
+on:
+  push:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  ls_options:
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        ls_options:
+          - "-la"
+          - "-l"
+          - "-a"
+        OS:
+          - ubuntu-latest
+          - macos-latest
+        include:
+          - OS: windows-latest
+            ls_options: ""
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: ./.github/actions/checkout
+        with:
+          ls_options: ${{ matrix.ls_options }}
