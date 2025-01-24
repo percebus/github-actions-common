@@ -78,6 +78,18 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.ssh-private-key }}
 
+      # NOTE: We could use github-actions-node
+      # But it has a dependency on github-actions-common
+      - name: setup node @ ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # NOTE: We could use github-actions-npm
+      # But it has a dependency on github-actions-common
+      - name: npm run setup:ci
+        run: npm run setup:ci --if-present
+
       # Pulls from other repositories
       # Needs a personal access token with repo permissions
       - name: bower install
