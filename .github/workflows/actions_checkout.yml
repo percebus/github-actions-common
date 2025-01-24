@@ -1,0 +1,70 @@
+name: actions/checkout
+on:
+  push:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    name: "checkout: default"
+    steps:
+      # FIXME: maybe checkout conflicts with the 'checkout' action
+      # - uses: ./.github/actions/checkout # FIXME
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+
+  ls_options:
+    needs: default
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        ls_options:
+          - "-la"
+          - "-l"
+          - "-a"
+        OS:
+          - ubuntu-latest
+          - macos-latest
+        include:
+          - OS: windows-latest
+            ls_options: ""
+
+    runs-on: ${{ matrix.os }}
+    name: "checkout: ls ${{ matrix.ls_options }} @ ${{ matrix.OS }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ls_options: ${{ matrix.ls_options }}
+
+  fetch-depth:
+    needs: default
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        fetch-depth:
+          - 0
+          - 1
+          - 2
+    name: "checkout: git fetch-depth:${{ matrix.fetch-depth }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          fetch-depth: ${{ matrix.fetch-depth }}
+
+  submodules:
+    needs: default
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        submodules:
+          - "true"
+          - "false"
+    name: "checkout: git submodules:${{ matrix.submodules }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          submodules: ${{ matrix.submodules }}
