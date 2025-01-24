@@ -80,7 +80,7 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          ssh-private-key: ${{ secrets.ssh-private-key }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # NOTE: We could use github-actions-node
       # But it has a dependency on github-actions-common
@@ -97,4 +97,6 @@ jobs:
       # Pulls from other repositories
       # Needs a personal access token with repo permissions
       - name: bower install
-        run: bower install
+        run: |
+          npm run bower:install
+          ls -la ./bower_components
