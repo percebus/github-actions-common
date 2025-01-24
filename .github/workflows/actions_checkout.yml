@@ -47,7 +47,7 @@ jobs:
           - 0
           - 1
           - 2
-    name: "checkout: git fetch-depth: ${{ matrix.fetch-depth }}"
+    name: "checkout: git fetch-depth:${{ matrix.fetch-depth }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
@@ -63,7 +63,7 @@ jobs:
         submodules:
           - "true"
           - "false"
-    name: "checkout: git submodules: ${{ matrix.submodules }}"
+    name: "checkout: git submodules:${{ matrix.submodules }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
