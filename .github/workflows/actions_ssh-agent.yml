@@ -9,7 +9,6 @@ env:
 
 jobs:
   ssh-private-key:
-    needs: default
     runs-on: ubuntu-latest
     name: "checkout: ssh-private-key"
     steps:
