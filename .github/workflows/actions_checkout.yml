@@ -22,6 +22,8 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: ./.github/actions/checkout
+      # FIXME: maybe checkout conflicts with the 'checkout' action
+      # - uses: ./.github/actions/checkout # FIXME
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
           ls_options: ${{ matrix.ls_options }}
