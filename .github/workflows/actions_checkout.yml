@@ -72,19 +72,13 @@ jobs:
   ssh-private-key:
     needs: default
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 6
-      fail-fast: false
-      matrix:
-        ssh-private-key:
-          - ${{ secrets.SSH_PRIVATE_KEY }}
-          # - ""
     name: "checkout: ssh-private-key"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          ssh-private-key: ${{ matrix.ssh-private-key }}
+          ssh-private-key: ${{ secrets.ssh-private-key }}
 
+      # Pulls from other repositories
+      # Needs a personal access token with repo permissions
       - name: bower install
-        if: ${{ matrix.ssh-private-key != '' }}
         run: bower install
