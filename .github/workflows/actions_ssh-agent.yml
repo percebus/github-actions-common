@@ -10,7 +10,7 @@ env:
 jobs:
   ssh-private-key:
     runs-on: ubuntu-latest
-    name: "checkout: ssh-private-key"
+    name: "ssh-agent: ssh-private-key"
     steps:
       - uses: ./.github/actions/ssh-agent
         with:
