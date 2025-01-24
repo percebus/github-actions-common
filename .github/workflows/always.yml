@@ -12,7 +12,9 @@ jobs:
     name: npm run lint
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/checkout
+      # FIXME: maybe checkout conflicts with the 'checkout' action
+      # - uses: ./.github/actions/checkout # FIXME
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
 
       # NOTE: We could use github-actions-node
       # But it has a dependency on github-actions-common

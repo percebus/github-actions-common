@@ -21,10 +21,39 @@ jobs:
             ls_options: ""
 
     runs-on: ${{ matrix.os }}
-    name: checkout ls ${{ matrix.ls_options }} @ ${{ matrix.OS }}
+    name: "checkout: ls ${{ matrix.ls_options }} @ ${{ matrix.OS }}"
     steps:
-      # FIXME: maybe checkout conflicts with the 'checkout' action
-      # - uses: ./.github/actions/checkout # FIXME
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
           ls_options: ${{ matrix.ls_options }}
+
+  fetch-depth:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        fetch-depth:
+          - 0
+          - 1
+          - 2
+    name: "checkout: git fetch-depth: ${{ matrix.fetch-depth }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          fetch-depth: ${{ matrix.fetch-depth }}
+
+  submodules:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        submodules:
+          - "true"
+          - "false"
+    name: "checkout: git submodules: ${{ matrix.submodules }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          submodules: ${{ matrix.submodules }}
