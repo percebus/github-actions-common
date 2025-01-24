@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "checkout: ssh-private-key"
     steps:
-      - uses: ./.github/actions/ssh-agent@main
+      - uses: ./.github/actions/ssh-agent
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
