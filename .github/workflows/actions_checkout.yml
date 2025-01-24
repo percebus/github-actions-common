@@ -21,6 +21,7 @@ jobs:
             ls_options: ""
 
     runs-on: ${{ matrix.os }}
+    name: checkout ls ${{ matrix.ls_options }} @ ${{ matrix.OS }}
     steps:
       # FIXME: maybe checkout conflicts with the 'checkout' action
       # - uses: ./.github/actions/checkout # FIXME
