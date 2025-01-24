@@ -3,6 +3,10 @@ on:
   push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
+env:
+  # auto-select LTS version
+  NODE_VERSION: ""
+
 jobs:
   default:
     runs-on: ubuntu-latest
