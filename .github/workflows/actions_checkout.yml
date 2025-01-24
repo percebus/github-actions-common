@@ -10,7 +10,7 @@ env:
 jobs:
   default:
     runs-on: ubuntu-latest
-    name: "checkout: default"
+    name: "default"
     steps:
       # FIXME: maybe checkout conflicts with the 'checkout' action
       # - uses: ./.github/actions/checkout # FIXME
@@ -34,7 +34,7 @@ jobs:
             ls_options: ""
 
     runs-on: ${{ matrix.os }}
-    name: "checkout: ls ${{ matrix.ls_options }} @ ${{ matrix.OS }}"
+    name: "ls ${{ matrix.ls_options }} @ ${{ matrix.OS }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
@@ -51,7 +51,7 @@ jobs:
           - 0
           - 1
           - 2
-    name: "checkout: git fetch-depth:${{ matrix.fetch-depth }}"
+    name: "git fetch-depth:${{ matrix.fetch-depth }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
@@ -67,7 +67,7 @@ jobs:
         submodules:
           - "true"
           - "false"
-    name: "checkout: git submodules:${{ matrix.submodules }}"
+    name: "git submodules:${{ matrix.submodules }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
@@ -76,7 +76,7 @@ jobs:
   ssh-private-key:
     needs: default
     runs-on: ubuntu-latest
-    name: "checkout: ssh-private-key"
+    name: "w/ ssh-private-key"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
