@@ -47,4 +47,4 @@ jobs:
       - name: bower install
         run: |
           npm run bower:install
-          ls -la ./bower_components
+          ls ./bower_components
