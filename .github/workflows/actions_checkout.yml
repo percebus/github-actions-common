@@ -61,26 +61,6 @@ jobs:
         with:
           fetch-depth: ${{ matrix.fetch-depth }}
 
-  submodules:
-    needs: default
-    strategy:
-      max-parallel: 6
-      fail-fast: false
-      matrix:
-        submodules:
-          - "true"
-          - "false"
-        OS:
-          - ubuntu-latest
-          - macos-latest
-          - windows-latest
-    runs-on: ${{ matrix.OS }}
-    name: "git submodules:${{ matrix.submodules }} @ ${{ matrix.OS }}"
-    steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
-        with:
-          submodules: ${{ matrix.submodules }}
-
   ssh-private-key:
     needs: default
     strategy:
@@ -119,3 +99,24 @@ jobs:
         run: npm run bower:install
       - name: ls bower_components
         run: ls ./bower_components
+
+  submodules:
+    needs: default
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        submodules:
+          - "true"
+          - "false"
+        OS:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    runs-on: ${{ matrix.OS }}
+    name: "git submodules:${{ matrix.submodules }} @ ${{ matrix.OS }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          submodules: ${{ matrix.submodules }}
