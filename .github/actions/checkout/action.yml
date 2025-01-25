@@ -8,7 +8,7 @@ inputs:
   submodules:
     description: whether to update submodules
     required: false
-    default: "true"
+    default: "false"
 
   fetch-depth:
     description: git checkout fetch-depth
