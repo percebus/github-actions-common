@@ -2,7 +2,7 @@
   "name": "github-actions-common",
   "private": true,
   "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
-  "devDependencies": {
-    "commons": "git@github.com:percebus/commons.git#main"
+  "dependencies": {
+    "percebus-assets": "git@github.com:percebus/percebus-assets.git#main"
   }
 }

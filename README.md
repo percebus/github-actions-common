@@ -10,5 +10,5 @@ GitHub re-usable Workflows and Actions
 
 ### Actions
 
-- [![actions/checkout](https://github.com/percebus/github-actions-common/actions/workflows/actions_checkout.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/actions_checkout.yml)
-- [![actions/ssh-agent](https://github.com/percebus/github-actions-common/actions/workflows/actions_ssh-agent.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/actions_ssh-agent.yml)
+- [![actions/checkout](https://github.com/percebus/github-actions-common/actions/workflows/actions__checkout.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/actions__checkout.yml)
+- [![actions/ssh-agent](https://github.com/percebus/github-actions-common/actions/workflows/actions__ssh-agent.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/actions__ssh-agent.yml)
