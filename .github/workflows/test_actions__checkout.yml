@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     name: "default"
     steps:
-      # FIXME: maybe checkout conflicts with the 'checkout' action
-      # - uses: ./.github/actions/checkout # FIXME
+      # NOTE:
+      # actions in relative paths need to be checked-out
+      # But checking out for checking out seems silly
       - uses: percebus/github-actions-common/.github/actions/checkout@main
 
   ls_options:

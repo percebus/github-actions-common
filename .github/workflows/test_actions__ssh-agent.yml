@@ -12,6 +12,9 @@ jobs:
     name: default
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
       - uses: ./.github/actions/ssh-agent
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
