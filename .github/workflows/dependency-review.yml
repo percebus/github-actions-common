@@ -5,6 +5,11 @@ name: dependency-review
 on:
   pull_request:
   workflow_call: # SRC: https://docs.github.com/en/actions/using-workflows/reusing-workflows
+    inputs:
+      ssh-private-key:
+        type: string
+        description: SSH private key
+        required: false
 
 permissions:
   contents: read
@@ -15,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: dependency-review
         uses: actions/dependency-review-action@v2
