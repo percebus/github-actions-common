@@ -3,7 +3,7 @@ description: Configure SSH
 inputs:
   ssh-private-key:
     description: SSH private key
-    required: false
+    required: true
 
 runs:
   using: composite

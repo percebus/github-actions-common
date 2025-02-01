@@ -8,16 +8,22 @@ env:
   NODE_VERSION: ""
 
 jobs:
+  default:
+    name: default
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/ssh-agent
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
   ssh-private-key:
+    needs: default
     strategy:
       max-parallel: 6
       fail-fast: false
       matrix:
-        submodules:
-          - "true"
-          - "false"
         OS:
-          - ubuntu-latest
+          # - ubuntu-latest # Tested above
           - macos-latest
           # - windows-latest # FIXME not working: "Host key verification failed."
     runs-on: ${{ matrix.OS }}
@@ -40,7 +46,7 @@ jobs:
       # NOTE: We could use github-actions-npm
       # But it has a dependency on github-actions-common
       - name: npm run setup:ci
-        run: npm run setup:ci --if-present
+        run: npm run setup:ci
 
       # Pulls from other repositories
       # Needs a personal access token with repo permissions

@@ -91,7 +91,7 @@ jobs:
       # NOTE: We could use github-actions-npm
       # But it has a dependency on github-actions-common
       - name: npm run setup:ci
-        run: npm run setup:ci --if-present
+        run: npm run setup:ci
 
       # Pulls from other repositories
       # Needs a personal access token with repo permissions
