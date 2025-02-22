@@ -17,7 +17,7 @@ jobs:
       # But checking out for checking out seems silly
       - uses: percebus/github-actions-common/.github/actions/checkout@main
 
-  ls_options:
+  ls_options__matrix:
     needs: default
     strategy:
       max-parallel: 6
@@ -41,7 +41,7 @@ jobs:
         with:
           ls_options: ${{ matrix.ls_options }}
 
-  fetch-depth:
+  fetch-depth__matrix:
     needs: default
     strategy:
       max-parallel: 6
@@ -62,15 +62,12 @@ jobs:
         with:
           fetch-depth: ${{ matrix.fetch-depth }}
 
-  ssh-private-key:
+  ssh-private-key__bower__matrix:
     needs: default
     strategy:
       max-parallel: 6
       fail-fast: false
       matrix:
-        submodules:
-          - "true"
-          - "false"
         OS:
           - ubuntu-latest
           - macos-latest
@@ -101,7 +98,32 @@ jobs:
       - name: ls bower_components
         run: ls ./bower_components
 
-  submodules:
+  repository__matrix:
+    needs: default
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        OS:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
+        repository:
+          - git@github.com:percebus/percebus-assets.git
+    runs-on: ${{ matrix.OS }}
+    name: "w/ repository:${{ matrix.repository }} @ ${{ matrix.OS }}"
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          repository: ${{ matrix.repository }}
+          path: repos/${{ matrix.repository }}
+
+      - name: ls repos
+        run: ls ./repos
+
+  submodules__matrix:
     needs: default
     strategy:
       max-parallel: 6
