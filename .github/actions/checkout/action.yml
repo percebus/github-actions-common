@@ -13,7 +13,7 @@ inputs:
   path:
     description: Relative path under $GITHUB_WORKSPACE to place the repository
     required: false
-    default: ''
+    default: ""
 
   submodules:
     description: whether to update submodules
