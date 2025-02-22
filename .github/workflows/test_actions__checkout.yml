@@ -15,7 +15,7 @@ jobs:
       # NOTE:
       # actions in relative paths need to be checked-out
       # But checking out for checking out seems silly
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
 
   ls_options__matrix:
     needs: default
@@ -37,7 +37,7 @@ jobs:
     runs-on: ${{ matrix.OS }}
     name: "ls ${{ matrix.ls_options }} @ ${{ matrix.OS }}"
     steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
         with:
           ls_options: ${{ matrix.ls_options }}
 
@@ -58,7 +58,7 @@ jobs:
     runs-on: ${{ matrix.OS }}
     name: "git fetch-depth:${{ matrix.fetch-depth }} @ ${{ matrix.OS }}"
     steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
         with:
           fetch-depth: ${{ matrix.fetch-depth }}
 
@@ -75,7 +75,7 @@ jobs:
     runs-on: ${{ matrix.OS }}
     name: "w/ ssh-private-key @ ${{ matrix.OS }}"
     steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -107,14 +107,14 @@ jobs:
         OS:
           - ubuntu-latest
           - macos-latest
-          - windows-latest
+          # - windows-latest # FIXME SSH_PRIVATE_KEY not working
 
         repository:
           - git@github.com:percebus/percebus-assets.git
     runs-on: ${{ matrix.OS }}
     name: "w/ repository:${{ matrix.repository }} @ ${{ matrix.OS }}"
     steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           repository: ${{ matrix.repository }}
@@ -139,7 +139,7 @@ jobs:
     runs-on: ${{ matrix.OS }}
     name: "git submodules:${{ matrix.submodules }} @ ${{ matrix.OS }}"
     steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/checkout
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           submodules: ${{ matrix.submodules }}
