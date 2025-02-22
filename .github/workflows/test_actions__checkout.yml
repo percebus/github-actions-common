@@ -104,13 +104,14 @@ jobs:
       max-parallel: 6
       fail-fast: false
       matrix:
+        repository:
+          - percebus-assets
+
         OS:
           - ubuntu-latest
           - macos-latest
           # - windows-latest # FIXME SSH_PRIVATE_KEY not working
 
-        repository:
-          - percebus-assets
     runs-on: ${{ matrix.OS }}
     name: "w/ repository:${{ matrix.repository }} @ ${{ matrix.OS }}"
     steps:
