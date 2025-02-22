@@ -5,6 +5,16 @@ inputs:
     description: SSH private key
     required: false
 
+  repository:
+    description: Repository to check out
+    required: false
+    default: ${{ github.repository }}
+
+  path:
+    description: Relative path under $GITHUB_WORKSPACE to place the repository
+    required: false
+    default: ""
+
   submodules:
     description: whether to update submodules
     required: false
@@ -34,7 +44,9 @@ runs:
     - name: checkout
       uses: actions/checkout@v4
       with:
+        repository: ${{ inputs.repository }}
         fetch-depth: ${{ inputs.fetch-depth }}
+        path: ${{ inputs.path }}
 
     - name: git submodule update
       if: ${{ inputs.submodules == 'true' }}
