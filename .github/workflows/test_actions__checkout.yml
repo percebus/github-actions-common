@@ -71,7 +71,8 @@ jobs:
         OS:
           - ubuntu-latest
           - macos-latest
-          # - windows-latest # FIXME not working
+          # - windows-latest # FIXME "Host key verification failed."
+
     runs-on: ${{ matrix.OS }}
     name: "w/ ssh-private-key @ ${{ matrix.OS }}"
     steps:
@@ -110,10 +111,10 @@ jobs:
         OS:
           - ubuntu-latest
           - macos-latest
-          # - windows-latest # FIXME SSH_PRIVATE_KEY not working
+          - windows-latest
 
     runs-on: ${{ matrix.OS }}
-    name: "w/ repository:${{ matrix.repository }} @ ${{ matrix.OS }}"
+    name: "w/ checkout:${{ matrix.repository }} @ ${{ matrix.OS }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
@@ -136,7 +137,8 @@ jobs:
         OS:
           - ubuntu-latest
           - macos-latest
-          # - windows-latest # FIXME SSH_PRIVATE_KEY not working
+          # - windows-latest # FIXME "Host key verification failed."
+
     runs-on: ${{ matrix.OS }}
     name: "git submodules:${{ matrix.submodules }} @ ${{ matrix.OS }}"
     steps:
