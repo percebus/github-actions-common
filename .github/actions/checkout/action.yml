@@ -41,7 +41,7 @@ runs:
         ssh-private-key: ${{ inputs.ssh-private-key }}
 
     # SRC: https://github.com/actions/checkout
-    - name: checkout
+    - name: checkout ${{ inputs.repository }}
       uses: actions/checkout@v4
       with:
         repository: ${{ inputs.repository }}

@@ -110,7 +110,7 @@ jobs:
           # - windows-latest # FIXME SSH_PRIVATE_KEY not working
 
         repository:
-          - git@github.com:percebus/percebus-assets.git
+          - percebus/percebus-assets
     runs-on: ${{ matrix.OS }}
     name: "w/ repository:${{ matrix.repository }} @ ${{ matrix.OS }}"
     steps:
