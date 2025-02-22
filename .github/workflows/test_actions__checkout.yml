@@ -110,14 +110,14 @@ jobs:
           # - windows-latest # FIXME SSH_PRIVATE_KEY not working
 
         repository:
-          - percebus/percebus-assets
+          - percebus-assets
     runs-on: ${{ matrix.OS }}
     name: "w/ repository:${{ matrix.repository }} @ ${{ matrix.OS }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          repository: ${{ matrix.repository }}
+          repository: percebus/${{ matrix.repository }}
           path: repos/${{ matrix.repository }}
 
       - name: ls repos
