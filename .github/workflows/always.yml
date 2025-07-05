@@ -3,33 +3,40 @@ on:
   push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
-env:
-  # auto-select LTS version
-  NODE_VERSION: ""
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   lint:
-    name: npm run lint
+    uses: percebus/github-actions-npm/.github/workflows/npm_run_script.yml@main
+    with:
+      script: lint
+
+  codeQL:
+    needs: lint
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+          - actions
+
+    name: "CodeQL: ${{ matrix.language }}"
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-
-      # NOTE: We could use github-actions-node
-      # But it has a dependency on github-actions-common
-      - name: setup node @ ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
-      # NOTE: We could use github-actions-npm
-      # But it has a dependency on github-actions-common
-      - name: npm run setup:ci
-        run: npm run setup:ci --if-present
+      - name: setup CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
 
-      - name: npm install
-        run: npm ci
-      - name: ls node_modules
-        run: ls -la ./node_modules
-
-      - name: npm run lint
-        run: npm run lint
+      - name: CodeQL
+        uses: github/codeql-action/analyze@v3
