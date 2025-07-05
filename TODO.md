@@ -3,4 +3,8 @@
 ## TODOs
 
 - [ ] Use relative paths for `actions`.
-- [ ] Revisit LICENSE: The UnLicense?
+- [ ] Re-usable CodeQL workflow for GitHub Actions.
+
+## Done
+
+- [x] ~~Revisit LICENSE: The UnLicense?~~
