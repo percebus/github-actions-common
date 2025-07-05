@@ -2,7 +2,7 @@
 
 [`TODO`s](./TODO.md) | [`LICENSE`](./LICENSE.md)
 
-[![Verification](https://github.com/percebus/github-actions-common/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/always.yml) [![dependency-review](https://github.com/percebus/github-actions-common/actions/workflows/dependency-review.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/dependency-review.yml)
+[![[C]ontinuous [I]ntegration](https://github.com/percebus/github-actions-common/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/always.yml) [![Pull Request](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml)
 
 GitHub re-usable Workflows and Actions
 
@@ -17,6 +17,6 @@ GitHub re-usable Workflows and Actions
 
 ### Workflows
 
-| workflow                                                       | test                                                                                                                                                                                                                                      |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [dependency-review](./.github/workflows/dependency-review.yml) | [![dependency-review](https://github.com/percebus/github-actions-common/actions/workflows/dependency-review.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/dependency-review.yml) |
+| workflow                                                       | test                                                                                                                                                                                                                       |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [dependency-review](./.github/workflows/dependency-review.yml) | [![Pull Request](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml) |
