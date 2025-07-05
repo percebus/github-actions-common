@@ -1,4 +1,4 @@
 [submodule "repositories/percebus-assets"]
 	path = repositories/percebus-assets
-	url = git@github.com:percebus/percebus-assets.git
+	url = https://github.com/percebus/percebus-assets.git
 	branch = main
