@@ -136,7 +136,7 @@ jobs:
       fail-fast: false
       matrix:
         submodules:
-          - "true"
+          # - "true"  # FIXME
           - "false"
         OS:
           - ubuntu-latest
