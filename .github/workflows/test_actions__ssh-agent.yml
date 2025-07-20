@@ -43,12 +43,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # NOTE: We could use github-actions-node
-      # But it has a dependency on github-actions-common
-      - name: setup node @ ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+      - uses: percebus/github-actions-node/.github/actions/setup@main
 
       # NOTE: We could use github-actions-npm
       # But it has a dependency on github-actions-common
