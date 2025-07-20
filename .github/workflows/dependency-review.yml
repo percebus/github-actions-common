@@ -21,4 +21,4 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: dependency-review
-        uses: actions/dependency-review-action@v2
+        uses: actions/dependency-review-action@v4
