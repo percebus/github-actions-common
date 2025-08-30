@@ -1,3 +1,4 @@
+# XXX: Being migrated to github-actions-compliance
 name: dependency-review
 
 on:
