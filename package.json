@@ -2,14 +2,13 @@
   "name": "github-actions-common",
   "version": "1.0.0",
   "description": "GitHub re-usable workflows and actions",
-  "main": "index.js",
   "scripts": {
     "npm:install:global": "npm install --location=global bower",
     "setup": "npm run npm:install:global",
     "setup:ci": "npm run setup",
-    "prettier": "prettier .",
-    "prettier:check": "npm run prettier -- --check",
-    "prettier:write": "npm run prettier -- --write",
+    "_prettier": "prettier .",
+    "prettier:check": "npm run _prettier -- --check",
+    "prettier:write": "npm run _prettier -- --write",
     "lint": "npm run prettier:check",
     "style": "npm run prettier:write",
     "poststyle": "npm run prettier:check",
@@ -29,7 +28,7 @@
     "workflows"
   ],
   "author": "JCystems",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/percebus/github-actions-common/issues"
   },
