@@ -18,3 +18,13 @@ GitHub re-usable Workflows and Actions
 ### Workflows
 
 TBD
+
+## References
+
+### GitHub
+
+- [GitHub: Contexts reference](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context)
+
+### Medium
+
+- [Adding a unique build number to GitHub Actions](https://medium.com/attest-product-and-technology/adding-a-unique-github-build-identifier-7aa2e83cadca)
