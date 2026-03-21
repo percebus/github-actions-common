@@ -1,4 +1,4 @@
-name: Test actions/artifact-upload
+name: Test actions/artifact-*
 on:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
   pull_request:
@@ -21,6 +21,11 @@ jobs:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/artifact-upload
 
+      - name: rm ./dist
+        run: rm -rf ./dist
+
+      - uses: ./.github/actions/artifact-download
+
   path__matrix:
     needs: default
     runs-on: ubuntu-latest
@@ -38,3 +43,11 @@ jobs:
         with:
           name: ${{ matrix.path }}
           path: assets/${{ matrix.path }}/
+
+      - name: rm ./assets/${{ matrix.path }}
+        run: rm -rf ./assets/${{ matrix.path }}
+
+      - uses: ./.github/actions/artifact-download
+        with:
+          name: ${{ matrix.path }}
+          path: downloaded/${{ matrix.path }}/

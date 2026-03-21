@@ -1,0 +1,94 @@
+name: artifact-download
+description: download-artifact
+
+inputs:
+  ls_cli_options:
+    description: Options to pass to the ls command
+    required: false
+    default: -hla
+
+  # If unspecified, all artifacts for the run are downloaded.
+  name:
+    description: Name of the artifact to download.
+    required: false
+    default: "dist"
+
+  # Ignored if name is specified.
+  pattern:
+    description: A glob pattern to the artifacts that should be downloaded.
+    required: false
+    default: ""
+
+  # Either inputs `artifact-ids` or `name` can be used, but not both.
+  artifact-ids:
+    description: IDs of the artifacts to download, comma-separated.
+    required: false
+    default: ""
+
+  # Optional. Default is $GITHUB_WORKSPACE
+  path:
+    description: Destination path. Supports basic tilde expansion.
+    required: false
+    default: "dist"
+
+  # If true, the downloaded artifacts will be in the same directory specified by path.
+  # If false, the downloaded artifacts will be extracted into individual named directories within the specified path.
+  # Note: When downloading a single artifact (by name or ID), it will always be extracted directly to the specified path.
+  merge-multiple:
+    description: When multiple artifacts are matched, this changes the behavior of the destination directories.
+    required: false
+    default: "false"
+
+  # This is required when downloading artifacts from a different repository or from a different workflow run.
+  # Optional. If unspecified, the action will download artifacts from the current repo and the current workflow run.
+  github-token:
+    description: The GitHub token used to authenticate with the GitHub API.
+    required: false
+    default: ""
+
+  # If github-token is specified, this is the repository that artifacts will be downloaded from.
+  repository:
+    description: The repository owner and the repository name joined together by "/".
+    required: false
+    default: ${{ github.repository }}
+
+  # If github-token is specified, this is the run that artifacts will be downloaded from.
+  run-id:
+    description: The id of the workflow run where the desired download artifact was uploaded from.
+    required: false
+    default: ${{ github.run_id }}
+
+  # If true, the downloaded artifact will not be automatically extracted/decompressed.
+  # This is useful when you want to handle the artifact as-is without extraction.
+  skip-decompress:
+    description: Whether to skip decompressing a zip file (if detected).
+    required: false
+    default: "false"
+
+  # Can be one of: `ignore`, `info`, `warn`, `error`
+  digest-mismatch:
+    description: What to do if the action detects a mismatch between the downloaded hash and the expected hash from the server.
+    required: false
+    default: "error"
+
+runs:
+  using: composite
+  steps:
+    # SRC: https://github.com/actions/download-artifact
+    - name: download-artifact
+      uses: actions/download-artifact@v6
+      with:
+        name: ${{ inputs.name }}
+        path: ${{ inputs.path }}
+        run-id: ${{ inputs.run-id }}
+        pattern: ${{ inputs.pattern }}
+        repository: ${{ inputs.repository }}
+        artifact-ids: ${{ inputs.artifact-ids }}
+        github-token: ${{ inputs.github-token }}
+        merge-multiple: ${{ inputs.merge-multiple }}
+        skip-decompress: ${{ inputs.skip-decompress }}
+        digest-mismatch: ${{ inputs.digest-mismatch }}
+
+    - name: ls
+      shell: bash
+      run: ls ${{ inputs.ls_cli_options }} ${{ inputs.path }}
