@@ -1,5 +1,5 @@
-name: checkout
-description: checkout and do some other things
+name: artifact-upload
+description: upload-artifact
 
 inputs:
   ls_cli_options:
