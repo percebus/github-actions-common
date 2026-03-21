@@ -1,6 +1,7 @@
 # github-actions-common
 
-[![[C]ontinuous [I]ntegration](https://github.com/percebus/github-actions-common/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/always.yml) [![Pull Request](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml)
+[![[C]ontinuous [I]ntegration](https://github.com/percebus/github-actions-common/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/always.yml)
+[![Pull Request](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/github-actions-common/actions/workflows/pull_request.yml)
 
 [`LICENSE`](./LICENSE.md) | [`TODO`s](./TODO.md)
 
@@ -22,8 +23,6 @@ GitHub re-usable Workflows and Actions
 TBD
 
 ## References
-
-### GitHub
 
 - [GitHub: Contexts reference](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context)
 
