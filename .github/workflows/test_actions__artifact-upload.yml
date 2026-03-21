@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: default
     steps:
-      - uses: ./.github/actions/checkout
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/artifact-upload
 
   path__matrix:
@@ -30,5 +30,5 @@ jobs:
 
     name: upload ${{ matrix.path }}
     steps:
-      - uses: ./.github/actions/checkout
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/artifact-upload
