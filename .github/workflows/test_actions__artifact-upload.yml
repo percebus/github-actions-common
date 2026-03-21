@@ -1,0 +1,40 @@
+name: Test actions/artifact-upload
+on:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    name: default
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/artifact-upload
+
+  path__matrix:
+    needs: default
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        path:
+          - some_folder
+
+    name: assets/${{ matrix.path }}/
+    steps:
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+      - uses: ./.github/actions/artifact-upload
+        with:
+          name: ${{ matrix.path }}
+          path: assets/${{ matrix.path }}/

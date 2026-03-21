@@ -1,7 +1,10 @@
 name: Test actions/ssh-agent
 on:
-  push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -10,6 +13,9 @@ concurrency:
 env:
   # auto-select LTS version
   NODE_VERSION: ""
+
+permissions:
+  contents: read
 
 jobs:
   default:
