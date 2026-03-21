@@ -28,10 +28,10 @@ jobs:
         path:
           - some_folder
 
-    name: upload ${{ matrix.path }}
+    name: assets/${{ matrix.path }}/
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/artifact-upload
         with:
           name: ${{ matrix.path }}
-          path: assets/${{ matrix.path }}
+          path: assets/${{ matrix.path }}/
