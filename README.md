@@ -10,10 +10,11 @@ GitHub re-usable Workflows and Actions
 
 ### Actions
 
-| action                                   | tests                                                                                                                                                                                                                                   |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [checkout](./.github/actions/checkout)   | [![Test actions/checkout](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__checkout.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__checkout.yml)    |
-| [ssh-agent](./.github/actions/ssh-agent) | [![Test actions/ssh-agent](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__ssh-agent.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__ssh-agent.yml) |
+| action                                               | tests                                                                                                                                                                                                                                                     |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [checkout](./.github/actions/checkout)               | [![Test actions/checkout](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__checkout.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__checkout.yml)                      |
+| [ssh-agent](./.github/actions/ssh-agent)             | [![Test actions/ssh-agent](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__ssh-agent.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__ssh-agent.yml)                   |
+| [artifact-upload](./.github/actions/artifact-upload) | [![Test actions/artifact-upload](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__artifact-upload.yml/badge.svg)](https://github.com/percebus/github-actions-common/actions/workflows/test_actions__artifact-upload.yml) |
 
 ### Workflows
 
