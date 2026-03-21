@@ -26,11 +26,12 @@ jobs:
       fail-fast: false
       matrix:
         path:
-          - assets/some_folder
+          - some_folder
 
     name: upload ${{ matrix.path }}
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/artifact-upload
         with:
-          path: ${{ matrix.path }}
+          name: ${{ matrix.path }}
+          path: assets/${{ matrix.path }}

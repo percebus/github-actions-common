@@ -29,9 +29,9 @@ jobs:
       matrix:
         language:
           - actions
-          - javascript
+          # - javascript # TODO? when JS actions/workflows are added
 
-    name: "CodeQL: ${{ matrix.language }}"
+    name: CodeQL
     uses: percebus/github-actions-compliance/.github/workflows/codeql_analyze.yml@main
     with:
       language: ${{ matrix.language }}
