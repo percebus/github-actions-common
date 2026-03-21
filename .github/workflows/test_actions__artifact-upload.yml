@@ -1,0 +1,32 @@
+name: Test actions/artifact-upload
+on:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    name: default
+    steps:
+      - uses: /.github/actions/artifact-upload
+
+  path__matrix:
+    needs: default
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        path:
+          - assets/some_folder
+
+    name: upload ${{ matrix.path }}
+    steps:
+      - uses: /.github/actions/artifact-upload

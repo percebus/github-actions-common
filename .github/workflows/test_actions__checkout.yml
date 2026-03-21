@@ -1,7 +1,10 @@
 name: Test actions/checkout
 on:
-  push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -10,7 +13,7 @@ concurrency:
 jobs:
   default:
     runs-on: ubuntu-latest
-    name: "default"
+    name: default
     steps:
       # NOTE:
       # actions in relative paths need to be checked-out
