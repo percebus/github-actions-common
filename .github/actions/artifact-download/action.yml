@@ -76,7 +76,7 @@ runs:
   steps:
     # SRC: https://github.com/actions/download-artifact
     - name: download-artifact
-      uses: actions/download-artifact@v6
+      uses: actions/download-artifact@v8
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}
