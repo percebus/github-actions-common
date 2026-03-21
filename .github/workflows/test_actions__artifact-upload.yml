@@ -32,3 +32,5 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
       - uses: ./.github/actions/artifact-upload
+        with:
+          path: ${{ matrix.path }}

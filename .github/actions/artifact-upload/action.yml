@@ -5,7 +5,7 @@ inputs:
   ls_cli_options:
     description: Options to pass to the ls command
     required: false
-    default: -alh
+    default: -hla
 
   name:
     description: Name of the artifact to upload
