@@ -3,6 +3,6 @@
   "private": true,
   "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
-    "percebus-assets": "git@github.com:percebus/percebus-assets.git#main"
+    "percebus-assets": "git+ssh://git@github.com/percebus/percebus-assets.git#main"
   }
 }

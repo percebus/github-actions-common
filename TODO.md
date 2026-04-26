@@ -2,7 +2,7 @@
 
 ## TODOs
 
-- [ ] Remove `dependency-review` workflow.
+- [ ] Rename `repositories/` to `submodules/`
 
 ## Abandoned
 
@@ -11,4 +11,5 @@
 
 ## Done
 
+- [x] Remove `dependency-review` workflow.
 - [x] ~~Revisit LICENSE: The UnLicense?~~
