@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   lint:
+    name: npm
     uses: percebus/github-actions-npm/.github/workflows/run_script.yml@main
     with:
       script: lint
