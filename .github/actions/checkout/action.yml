@@ -22,7 +22,7 @@ inputs:
   ref:
     description: The branch, tag or SHA to checkout.
     required: false
-    default: ${{ github.sha }}
+    default: ${{ github.ref }}
 
   # Number of commits to fetch.
   # 0 indicates all history for all branches and tags.
