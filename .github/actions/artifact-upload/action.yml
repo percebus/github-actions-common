@@ -63,9 +63,9 @@ runs:
       shell: bash
       run: ls ${{ inputs.ls_cli_options }} ${{ inputs.path }}
 
-    # SRC: https://github.com/actions/upload-artifact
+    # SRC: https://github.com/actions/upload-artifact/releases/tag/v7.0.1
     - name: upload-artifact
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}
