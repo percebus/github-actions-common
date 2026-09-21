@@ -64,8 +64,8 @@ runs:
       run: ls ${{ inputs.ls_cli_options }} ${{ inputs.path }}
 
     # SRC: https://github.com/actions/upload-artifact/releases/tag/v7.0.1
-    - name: upload-artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+    - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      name: upload-artifact
       with:
         name: ${{ inputs.name }}
         path: ${{ inputs.path }}

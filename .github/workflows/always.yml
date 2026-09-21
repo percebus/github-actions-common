@@ -25,14 +25,7 @@ jobs:
       contents: read
       security-events: write
 
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-          - actions
-          # - javascript # TODO? when JS actions/workflows are added
-
-    name: CodeQL
+    name: CodeQL analyze
     uses: percebus/github-actions-compliance/.github/workflows/codeql_analyze.yml@main
     with:
-      language: ${{ matrix.language }}
+      language: actions

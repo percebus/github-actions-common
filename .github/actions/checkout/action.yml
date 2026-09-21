@@ -58,8 +58,8 @@ runs:
   using: composite
   steps:
     # SRC: https://github.com/actions/checkout/releases/tag/v7.0.1
-    - name: checkout ${{ inputs.repository }}
-      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      name: checkout ${{ inputs.repository }}
       with:
         ssh-key: ${{ inputs.ssh-private-key }}
         repository: ${{ inputs.repository }}
