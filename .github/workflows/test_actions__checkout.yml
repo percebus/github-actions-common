@@ -119,7 +119,7 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} # XXX?
           repository: percebus/${{ matrix.repository }}
           path: repos/${{ matrix.repository }}
 
@@ -145,5 +145,5 @@ jobs:
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} # XXX?
           submodules: ${{ matrix.submodules }}
