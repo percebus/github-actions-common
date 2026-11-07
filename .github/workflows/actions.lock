@@ -5,17 +5,6 @@ version: 'v0.0.3'
 workflows:
     '.github/workflows/always.yml': []
     '.github/workflows/pull_request.yml': []
-    '.github/workflows/test_actions__artifact.yml':
-        - 'actions/download-artifact@v8.0.1'
-        - 'actions/upload-artifact@v7.0.1'
-        - 'percebus/github-actions-common@main'
-    '.github/workflows/test_actions__checkout.yml':
-        - 'percebus/github-actions-common@main'
-        - 'percebus/github-actions-node@main'
-    '.github/workflows/test_actions__ssh-agent.yml':
-        - 'actions/checkout@v7.0.1'
-        - 'percebus/github-actions-node@main'
-        - 'webfactory/ssh-agent@v0.10.0'
 dependencies:
     'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1':
         ref: 'v7.0.1'
@@ -42,20 +31,6 @@ dependencies:
         commit: 'sha1-043fb46d1a93c77aae656e7c1c64a875d1fc6a0a'
         owner_id: 44036562
         repo_id: 192625955
-    'percebus/github-actions-common@main':
-        ref: 'main'
-        commit: 'sha1-bcc688f681fc21e72a13d03398bc167dbafae337'
-        owner_id: 5483088
-        repo_id: 909365451
-        uses:
-            - 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1'
-    'percebus/github-actions-node@main':
-        ref: 'main'
-        commit: 'sha1-bea9f963ec584931c19433250c6273f47bbadffd'
-        owner_id: 5483088
-        repo_id: 909184502
-        uses:
-            - 'actions/setup-node@v3'
     'webfactory/ssh-agent@v0.10.0':
         ref: 'v0.10.0'
         commit: 'sha1-e83874834305fe9a4a2997156cb26c5de65a8555'
