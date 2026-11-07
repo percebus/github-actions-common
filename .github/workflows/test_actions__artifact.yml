@@ -19,12 +19,12 @@ jobs:
     name: default
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-      - uses: ./.github/actions/artifact-upload
+      - uses: $/.github/actions/artifact-upload
 
       - name: rm ./dist
         run: rm -rf ./dist
 
-      - uses: ./.github/actions/artifact-download
+      - uses: $/.github/actions/artifact-download
 
   path__matrix:
     needs: default
@@ -39,7 +39,7 @@ jobs:
     name: assets/${{ matrix.path }}/
     steps:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-      - uses: ./.github/actions/artifact-upload
+      - uses: $/.github/actions/artifact-upload
         with:
           name: ${{ matrix.path }}
           path: assets/${{ matrix.path }}/
@@ -47,7 +47,7 @@ jobs:
       - name: rm ./assets/${{ matrix.path }}
         run: rm -rf ./assets/${{ matrix.path }}
 
-      - uses: ./.github/actions/artifact-download
+      - uses: $/.github/actions/artifact-download
         with:
           name: ${{ matrix.path }}
           path: downloaded/${{ matrix.path }}/
