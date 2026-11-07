@@ -59,7 +59,7 @@ runs:
   using: composite
   steps:
     # SRC: https://github.com/actions/checkout/
-    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+    - uses: actions/checkout@v7.0.1
       name: checkout ${{ inputs.repository }}
       with:
         ssh-key: ${{ inputs.ssh-private-key }}

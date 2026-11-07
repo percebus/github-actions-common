@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - uses: ./.github/actions/ssh-agent
         with:
@@ -43,7 +43,7 @@ jobs:
     name: "w/ ssh-private-key @ ${{ matrix.OS }}"
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - uses: ./.github/actions/ssh-agent
         with:
