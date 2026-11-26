@@ -2,13 +2,17 @@ name: Test actions/artifact-*
 on:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
   pull_request:
+    paths:
+      - test_actions__artifact.yml
+      - .github/actions/artifact-*/**
+      - assets/**
   push:
     branches:
       - main
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
 
 permissions:
   contents: read

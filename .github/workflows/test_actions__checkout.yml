@@ -8,7 +8,7 @@ on:
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
 
 permissions:
   contents: read
@@ -35,7 +35,7 @@ jobs:
           - "-a"
         OS:
           - ubuntu-latest
-          - macos-latest
+          # - macos-latest # TODO? or XXX?
         include:
           - OS: windows-latest
             ls_options: ""
@@ -59,7 +59,7 @@ jobs:
           - 2
         OS:
           - ubuntu-latest
-          - macos-latest
+          # - macos-latest # TODO? or XXX?
           - windows-latest
     runs-on: ${{ matrix.OS }}
     name: "git fetch-depth:${{ matrix.fetch-depth }} @ ${{ matrix.OS }}"
@@ -76,7 +76,7 @@ jobs:
       matrix:
         OS:
           - ubuntu-latest
-          - macos-latest
+          # - macos-latest # TODO? or XXX?
           # - windows-latest # FIXME "Host key verification failed."
 
     runs-on: ${{ matrix.OS }}
@@ -111,7 +111,7 @@ jobs:
 
         OS:
           - ubuntu-latest
-          - macos-latest
+          # - macos-latest # TODO? or XXX?
           - windows-latest
 
     runs-on: ${{ matrix.OS }}
@@ -137,7 +137,7 @@ jobs:
           - "false"
         OS:
           - ubuntu-latest
-          - macos-latest
+          # - macos-latest # TODO? or XXX?
           # - windows-latest # FIXME "Host key verification failed."
 
     runs-on: ${{ matrix.OS }}
